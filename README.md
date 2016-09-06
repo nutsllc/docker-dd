@@ -1,6 +1,10 @@
 # Docker DD
 
-supported by peco
+The Docker DD is a collection of shell commands that is easy to remember, becouse these are very simple. In addition, Docker DD is step less to manage docker than using original docker command.
+
+In many case you run the docker command, you need to examine a something like container id in advance. With the Docker DD, no need to examine it any more supported by peco.
+
+You can perform a lot of complex docker command in just one of the simple command that begins with DD(for docker), DN(for docker network) or DV(for docker volume).
 
 ## Requirements
 
@@ -31,25 +35,13 @@ STEP 3. Restart shell or execute three commands that you added to ``.bash_profil
 
 ## Usage
 
-Type docker-dd command like this
+Run command below.
 
-```bash
-$ DDimages
---------------------------------
-<IMAGES>
-1 : nginx-amplify               latest                  c0731e1f47a6   242.3 MB
-2 : nutsllc/clair-analysis-     1.0.0                   4df931c38363   837.5 MB
-3 : nutsllc/toybox-php          7.0                     dde3269c436f   577.8 MB
-4 : nginx                       latest                  4efb2fcdb1ab   183.4 MB
-5 : postgres                    latest                  5ff2afd2f5c3   265.9 MB
-6 : quay.io/coreos/clair        latest                  a76bf177c731   836.6 MB
-```
+Depending on the docker-dd command (ex.``DDrmi``), after the command effective it is peco window will open to select a image id, container id, network name or volume id.
 
-Depending on the docker-dd command (ex.``DDrmi``), after the command effective it is peco window will open to select a image id/container id/network name/volume id.
+### List of the Docker DD commands
 
-## Compare docker-dd to original docker command
-
-|docker-dd|In case of docker command|Description|
+|Docker DD|In case of docker command|Description|
 |:---|:---|:---|
 |DD|docker ps -a|Show all containers|
 |DDimages|docker images |Show all images|
