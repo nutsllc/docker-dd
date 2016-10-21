@@ -2,7 +2,7 @@
 
 The Docker DD is a collection of shell commands that is easy to remember, becouse these are very simple. In addition, Docker DD is step less to manage docker than using original docker command.
 
-In many case you run the docker command, you need to examine a something like container id in advance. With the Docker DD, no need to examine it any more supported by peco.
+In many case you run the docker command, you need to examine a something like container id in advance. With the Docker DD, no need to examine them any more supported by peco.
 
 You can perform a lot of complex docker command in just one of the simple command that begins with DD(for docker), DN(for docker network) or DV(for docker volume).
 
@@ -31,11 +31,11 @@ source /path/to/docker-dd/docker-dd-network.fnc
 source /path/to/docker-dd/docker-dd-volume.fnc
 ```
 
-STEP 3. Restart shell or execute three commands that you added to ``.bash_profile`` or ``.bashrc`` in above to load to the current shell.
+STEP 3. Restart shell or execute three commands that you added to ``.bash_profile`` or ``.bashrc`` in above to load to the current shell by ``source ~/.bash_profile`` or ``source ~/.bashrc``.
 
 ## Usage
 
-Run command below.
+Run docker-dd command below in a shell.
 
 Depending on the docker-dd command (ex.``DDrmi``), after the command effective it is peco window will open to select a image id, container id, network name or volume id.
 
