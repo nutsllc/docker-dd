@@ -1,10 +1,12 @@
 # Docker DD
 
-The Docker DD is a collection of shell commands that is easy to remember, becouse these are very simple. In addition, Docker DD is step less to manage docker than using original docker command.
+The Docker DD is a collection of the shell command to control the Docker much more simple than using original docker command. 
 
-In many case you run the docker command, you need to examine a something like container id in advance. With the Docker DD, no need to examine them any more supported by peco.
+In many case of the using original docker commands, you need to obtain a something like the container ID in advance. 
 
-You can perform a lot of complex docker command in just one of the simple command that begins with DD(for docker), DN(for docker network) or DV(for docker volume).
+You will not need them if you use the Docker DD
+
+You will be able to execute a lot of complex docker command in the simple commands which begins with DD(for docker), DN(for docker network) or DV(for docker volume).
 
 ## Requirements
 
