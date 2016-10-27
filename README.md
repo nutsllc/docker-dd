@@ -11,16 +11,12 @@ You can perform a lot of complex docker command in just one of the simple comman
 * [Docker](http://www.docker.com/)
 * [peco](https://github.com/peco/peco)
 
-## Quick start
-
-Clone repository and load three files by ``source`` command. That's all. 
-
-### How to
+## Getting started
 
 STEP 1. Clone this repository. It doesn't care of a directory at local.
 
 ```
-git clone https://github.com/ontheroadjp/dopecker.git
+git clone https://github.com/nutsllc/docker-dd.git
 ```
 
 STEP 2. Open your ``.bash_profile`` or ``.bashrc`` and add the following line of code:
@@ -31,7 +27,7 @@ source /path/to/docker-dd/docker-dd-network.fnc
 source /path/to/docker-dd/docker-dd-volume.fnc
 ```
 
-STEP 3. Restart shell or execute three commands that you added to ``.bash_profile`` or ``.bashrc`` in above to load to the current shell by ``source ~/.bash_profile`` or ``source ~/.bashrc``.
+STEP 3. Restart shell.
 
 ## Usage
 
