@@ -35,8 +35,6 @@ STEP 3. Restart shell.
 
 Run docker-dd command below in a shell.
 
-Depending on the docker-dd command (ex.``DDrmi``), after the command effective it is peco window will open to select a image id, container id, network name or volume id.
-
 ### List of the Docker DD commands
 
 |Docker DD|In case of docker command|Description|
