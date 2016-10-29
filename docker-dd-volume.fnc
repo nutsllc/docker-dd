@@ -9,7 +9,7 @@ function DV() {
 }
 
 function DVid() {
-    id=$(docker volume ls| tail -n +2 | peco | awk '{print $2}')
+    id=$(docker volume ls | tail -n +2 | peco | awk '{print $2}')
     if [ ! -z "$id" ] ; then
         echo ${id} 
     fi
@@ -20,6 +20,9 @@ function DVrm() {
         echo 'docker volume rm'
         docker volume rm $1 ${id}
     fi
+}
+function DVrma() {
+    docker volume rm $(docker volume ls -q)
 }
 function DVinspect() {
     id=$(DVid)
