@@ -285,7 +285,13 @@ function DDip() {
     id=$(DDid)
     if [ ! -z "$id" ] ; then
         #echo -e "\033[1;33m<IPAddress@${id}>\033[0m"
-        docker inspect -f '{{ .NetworkSettings.IPAddress }}' ${id}
+        out=$(docker inspect -f '{{ .NetworkSettings.IPAddress }}' ${id})
+        if [ ! -z "${out}" ]; then
+            echo ${out}; exit 0
+        fi
+
+        network=$(docker inspect -f '{{ .HostConfig.NetworkMode }}' ${id})
+        docker inspect -f "{{ .NetworkSettings.Networks.${network}.IPAddress }}" ${id}
     fi
 }
 function DDvol() {
