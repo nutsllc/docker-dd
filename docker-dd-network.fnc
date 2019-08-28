@@ -4,44 +4,44 @@
 # <Dopecker>
 # Functions for Docker
 #-------------------------------------------------
-function DN() {
+function DDn() {
     docker network ls
 }
 
-function DNid() {
+function DDnid() {
     id=$(docker network ls| tail -n +2 | peco | awk '{print $1}')
     if [ ! -z "$id" ] ; then
-        echo ${id} 
+        echo ${id}
     fi
 }
-function DNrm() {
-    id=$(DNid)
+function DDnrm() {
+    id=$(DDnid)
     if [ ! -z "$id" ] ; then
         echo 'docker network rm'
         docker network rm $1 ${id}
     fi
 }
-function DNinspect() {
-    id=$(DNid)
+function DDninspect() {
+    id=$(DDnid)
     if [ ! -z "$id" ] ; then
         echo 'docker network inspect'
         docker network inspect ${id}
     fi
 }
-function DNgateway() {
-    id=$(DNid)
+function DDngateway() {
+    id=$(DDnid)
     if [ ! -z "$id" ] ; then
         docker network inspect -f '{{range .IPAM.Config}} {{.Gateway}} {{end}}' ${id} | sed "s/ //"
     fi
 }
-function DNsubnet() {
-    id=$(DNid)
+function DDnsubnet() {
+    id=$(DDnid)
     if [ ! -z "$id" ] ; then
         docker network inspect -f '{{range .IPAM.Config}} {{.Subnet}} {{end}}' ${id} | sed "s/ //"
     fi
 }
-function DNnode() {
-    id=$(DNid)
+function DDnnode() {
+    id=$(DDnid)
     if [ ! -z "$id" ] ; then
         docker network inspect -f '{{range .Containers}} {{.Name}} {{end}}' ${id} | sed "s/ //"
     fi
