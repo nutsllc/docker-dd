@@ -35,7 +35,6 @@ command
     DDhistory           Show the history of an image
     DDinspect           Return low-level information on a container
     DDip                Show the IP Address of a container
-    DDvol               List volumes of container mounted
     DDhosts             Show the contents in /etc/hosts file 
     DDenv               List defined environment variables
 
@@ -285,15 +284,21 @@ function DDip() {
     id=$(DDid)
     if [ ! -z "$id" ] ; then
         #echo -e "\033[1;33m<IPAddress@${id}>\033[0m"
-        docker inspect -f '{{ .NetworkSettings.IPAddress }}' ${id}
+        out=$(docker inspect -f '{{ .NetworkSettings.IPAddress }}' ${id})
+        if [ ! -z "${out}" ]; then
+            echo ${out}; exit 0
+        fi
+
+        network=$(docker inspect -f '{{ .HostConfig.NetworkMode }}' ${id})
+        docker inspect -f "{{ .NetworkSettings.Networks.${network}.IPAddress }}" ${id}
     fi
 }
-function DDvol() {
-    id=$(DDid)
-    if [ ! -z "$id" ] ; then
-        docker inspect -f '{{ .Volumes }}' ${id}
-    fi
-}
+#function DDvol() {
+#    id=$(DDid)
+#    if [ ! -z "$id" ] ; then
+#        docker inspect -f '{{ .Volumes }}' ${id}
+#    fi
+#}
 function DDhosts() {
     id=$(DDid)
     if [ ! -z "$id" ] ; then
