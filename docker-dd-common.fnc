@@ -5,7 +5,7 @@ function DDhelp() {
 }
 function DDh() {
   cat <<-EOF
-Usage: 
+Usage:
     <command>
 command
     DD                  Show all containers
@@ -35,7 +35,7 @@ command
     DDhistory           Show the history of an image
     DDinspect           Return low-level information on a container
     DDip                Show the IP Address of a container
-    DDhosts             Show the contents in /etc/hosts file 
+    DDhosts             Show the contents in /etc/hosts file
     DDenv               List defined environment variables
 
     (Network commnad)
@@ -45,14 +45,14 @@ command
     DNgateway           Show the Gateway IPv4 Address of a network
     DNsubnet            Show the Subnet IPv4 Address of a network
     DNnode              List containers connected a network
-    DNid                Show a network id 
+    DNid                Show a network id
 
     (Volume command)
     DV                  Show all volumes
     DVrm                Remove a volume
     DVinspect           Display detailed information on volume
     DVmp                Show the directory path stored real data
-    DVid                Show a volume id 
+    DVid                Show a volume id
 
     DDh                 Show usage of the docker-dd
 
@@ -162,8 +162,19 @@ function DDrm() {
     fi
 }
 function DDrma() {
-    echo 'docker rm'
-    docker rm $1 $(docker ps -a -q)
+    containers=$(docker ps -a -q \
+        --filter status='restarting' \
+        --filter status='paused' \
+        --filter status='exited' \
+        --filter status='dead' \
+    )
+
+    [ ! -z ${containers} ] && {
+        docker rm ${containers}
+        echo 'remove all docker containers.'
+    } || {
+        echo 'No container is running.'
+    }
 }
 function DDdown() {
     id=$(docker ps | tail -n +2 | peco | cut -d" " -f1)
